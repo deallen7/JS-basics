@@ -173,8 +173,6 @@ if (x === 5) {
 	// some code
 }
 
-*/
-
 ///// Arrays
 
 var names = ['John', 'Jane', 'Mark'];
@@ -206,4 +204,176 @@ if (john.indexOf('teacher') === -1) {
 }	else {
 		console.log('John is a teacher');
 }
+
+//// Objects
+// "Probably the most important subject of the JS language"
+
+// for example, an array...
+
+var arr = [1,2,3];
+arr[0];
+
+// objects have key / value pairs
+// objects have no particular order. Is this just a hash?
+
+// create an object
+var john = {
+	name: 'John',
+	lastName: 'Smith',
+	yearOfBirth: 1990,
+	job: 'teacher',
+	isMarried: false
+};
+
+console.log(john);
+console.log(john.lastName);
+console.log(john['lastName']);
+
+var xyz = 'job';
+console.log(john[xyz]); // comp reads and redners like: console.log(john['job']);
+
+john.lastName = 'Miller';
+john.job = 'programmer';
+console.log(john);
+
+// new way to create and fill an object
+var jane = new Object();
+jane.name = 'Jane';
+jane.lastName = 'Smith';
+jane['yearOfBirth'] = 1969;
+jane['job'] = 'designer';
+jane['isMarried'] = true;
+console.log(jane);
+
+// Objects and Methods
+
+// v1.0
+var john = {
+	name: 'John',
+	lastName: 'Smith',
+	yearOfBirth: 1990,
+	job: 'teacher',
+	isMarried: false,
+	family: ['Jane', 'Mark', 'Bob'],
+	calculateAge: function() { /// same thing as declaring var calculateAge = function(yearOfBirth) {};
+		return 2016 - this.yearOfBirth; //this. refers to the var john, the object john
+	}
+};
+
+console.log(john);
+console.log(john.family);
+console.log(john.family[0]);
+console.log(john.calculateAge()); // objects can contain functions, and these functions are called methods!
+
+var age = john.calculateAge();
+john.age = age; // added a new element into the object 
+console.log(john);
+
+// v2.0
+var john = {
+	name: 'John',
+	lastName: 'Smith',
+	yearOfBirth: 1990,
+	job: 'teacher',
+	isMarried: false,
+	family: ['Jane', 'Mark', 'Bob'],
+	calculateAge: function() {
+		this.age = 2016 - this.yearOfBirth;
+	}
+};
+
+john.calculateAge();
+console.log(john);
+
+*/
+
+//// Loops 
+
+// for loop 
+/*
+for (var i = 99; i > 0; i--) {
+	console.log(i + " bottles of beer on the wall. " + i + " bottle of beer... Take one down, pass it around..." );
+}
+
+var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
+
+for (var i = 0; i < names.length; i++) {
+	console.log(names[i]);
+}
+
+for (var i = names.length - 1; i >= 0; i--) {
+	console.log(names[i]);
+}
+*/
+// while loop
+/*
+var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
+var i = 0;
+while(i < names.length) {
+	console.log(names[i]);
+	i++;
+}
+
+for (var i = 1; i <= 5; i++) {
+	console.log(i);
+	if (i === 3) {
+		break;
+	}
+}
+
+for (var i = 1; i <= 5; i++) {
+	if (i === 3) { // the number 3 will not be printed, but 4 and 5 will. 
+		continue;
+	}
+	console.log(i);
+}
+*/
+
+/// Coding Challenge 2
+/*
+var arrayOBirth = [1988, 1990, 1995, 1997]; //1
+var arrayAge = []; //2
+
+for (var i = 0; i < arrayOBirth.length; i++) { //3
+	arrayAge[i] = 2018 - arrayOBirth[i];
+}
+
+for (var i = 0; i < arrayAge.length; i++) { //4 
+	if (arrayAge[i] >= 18) {
+		console.log("Person is of full age! They are " + arrayAge[i]);
+	}
+	else {
+		console.log("Person is not an adult yet. There are " + arrayAge[i]);
+	}
+}
+*/
+
+arrayOfBirth = [1989, 1996, 2000, 2001];
+
+function printFullAge(arrayOfBirth) {
+	var newAgeArray = [];
+	var newAgeOfBoo = [];
+
+	for (var i = 0; i < arrayOfBirth.length; i++) {
+	newAgeArray[i] = 2018 - arrayOfBirth[i];
+	}
+	console.log(newAgeArray);
+ 	for (var i = 0; i < newAgeArray.length; i++) {
+		if (newAgeArray[i] >= 18) {
+		newAgeOfBoo[i] = (true);
+	} 	else {
+		newAgeOfBoo[i] = (false);
+	}
+  }
+  console.log(newAgeOfBoo);
+}
+
+var full_1 = printFullAge(arrayOfBirth);
+full_1
+
+arrayOBirth = [1969, 1975, 1988, 1990];
+var full_2 = printFullAge(arrayOBirth);
+full_2
+
+
 
